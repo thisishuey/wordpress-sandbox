@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  wordpress:
+    image: 'wordpress'
+    volumes:
+      - './:wp-content/plugins/wordpress-sandbox'
+    ports:
+      - '80:80'
+    environment:
+      WORDPRESS_DB_HOST: 'db'
+      WORDPRESS_DB_USER: 'dev'
+      WORDPRESS_DB_PASSWORD: 'password'
+      WORDPRESS_DB_NAME: 'wpdb'
+
+  db:
+    image: 'mysql:5.7'
+    environment:
+      MYSQL_DATABASE: 'wpdb'
+      MYSQL_USER: 'dev'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
