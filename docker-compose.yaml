@@ -1,26 +1,34 @@
-version: "3.1"
+version: "3.3"
 
 services:
   db:
-    image: "mysql:5.7"
-    restart: "always"
     environment:
       MYSQL_DATABASE: "wpdb"
       MYSQL_USER: "dev"
       MYSQL_PASSWORD: "password"
       MYSQL_RANDOM_ROOT_PASSWORD: "1"
+    image: "mysql:5.7"
+    restart: "always"
+    volumes:
+      - "./db_data:/var/lib/mysql"
 
   wordpress:
     depends_on:
       - "db"
-    image: "wordpress:latest"
-    volumes:
-      - "./:/var/www/html/wp-content/plugins/wordpress-sandbox"
-    ports:
-      - "80:80"
-    restart: "always"
     environment:
       WORDPRESS_DB_HOST: "db"
       WORDPRESS_DB_NAME: "wpdb"
       WORDPRESS_DB_USER: "dev"
       WORDPRESS_DB_PASSWORD: "password"
+    image: "wordpress:latest"
+    links:
+      - "db"
+    ports:
+      - "80:80"
+    restart: "always"
+    volumes:
+      - "./wp_data:/var/www/html"
+
+volumes:
+  db_data: {}
+  wp_data: {}
