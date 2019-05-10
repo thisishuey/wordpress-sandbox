@@ -10,6 +10,8 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: "1"
     image: "mysql:5.7"
     restart: "always"
+    volumes:
+      - "db_data:/var/lib/mysql"
 
   wp:
     container_name: "wordpress-sandbox-wp"
@@ -27,4 +29,8 @@ services:
       - "80:80"
     restart: "always"
     volumes:
-      - "./:/var/www/html/wp-content/plugins/wordpress-sandbox"
+      - "wp_data:/var/www/html"
+
+volumes:
+  db_data: {}
+  wp_data: {}
