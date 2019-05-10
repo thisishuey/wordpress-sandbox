@@ -2,6 +2,7 @@ version: "3.3"
 
 services:
   db:
+    container_name: "wordpress-sandbox-db"
     environment:
       MYSQL_DATABASE: "wpdb"
       MYSQL_USER: "dev"
@@ -9,10 +10,9 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: "1"
     image: "mysql:5.7"
     restart: "always"
-    volumes:
-      - "./db_data:/var/lib/mysql"
 
-  wordpress:
+  wp:
+    container_name: "wordpress-sandbox-wp"
     depends_on:
       - "db"
     environment:
@@ -27,8 +27,4 @@ services:
       - "80:80"
     restart: "always"
     volumes:
-      - "./wp_data:/var/www/html"
-
-volumes:
-  db_data: {}
-  wp_data: {}
+      - "./:/var/www/html/wp-content/plugins/wordpress-sandbox"
