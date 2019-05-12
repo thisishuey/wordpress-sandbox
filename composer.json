@@ -1,17 +1,17 @@
 {
-    "name": "thisishuey/wordpress-sandbox",
-    "description": "Playing around with WordPress and Docker",
-    "type": "library",
-    "license": "GPL-2.0-or-later",
-    "authors": [
-        {
-            "name": "Jeff \"Huey\" Huelsbeck",
-            "email": "huey@carpetelam.com"
-        }
-    ],
-    "require": {
-        "squizlabs/php_codesniffer": "^3.4",
-        "wp-coding-standards/wpcs": "^2.1",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"
+  "authors": [
+    {
+      "name": "Jeff \"Huey\" Huelsbeck",
+      "email": "huey@carpetelam.com"
     }
+  ],
+  "description": "Playing around with WordPress and Docker",
+  "license": "GPL-2.0-or-later",
+  "name": "thisishuey/wordpress-sandbox",
+  "require": {
+    "squizlabs/php_codesniffer": "^3.4",
+    "wp-coding-standards/wpcs": "^2.1",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"
+  },
+  "type": "library"
 }

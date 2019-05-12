@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   db:
-    container_name: "wordpress-sandbox-db"
+    container_name: "wordpress-sandbox_db"
     environment:
       MYSQL_DATABASE: "wpdb"
       MYSQL_USER: "dev"
@@ -16,7 +16,7 @@ services:
         type: "volume"
 
   wp:
-    container_name: "wordpress-sandbox-wp"
+    container_name: "wordpress-sandbox_wp"
     depends_on:
       - "db"
     environment:
