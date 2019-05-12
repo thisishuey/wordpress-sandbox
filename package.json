@@ -1,0 +1,20 @@
+{
+  "author": "Jeff \"Huey\" Huelsbeck <huey@carpetelam.com>",
+  "bugs": {
+    "url": "https://github.com/thisishuey/php-sandbox/issues"
+  },
+  "description": "Playing around with WordPress and Docker",
+  "homepage": "https://github.com/thisishuey/php-sandbox#readme",
+  "license": "GPL-2.0-or-later",
+  "main": "index.js",
+  "name": "wordpress-sandbox",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thisishuey/php-sandbox.git"
+  },
+  "scripts": {
+    "wp": "docker run --rm -it --volumes-from wordpress-sandbox_wp --network wordpress-sandbox_default --user 1000:1000 wordpress:cli"
+  },
+  "version": "1.0.0"
+}

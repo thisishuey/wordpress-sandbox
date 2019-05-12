@@ -11,7 +11,7 @@ services:
     image: "mysql:5.7"
     restart: "always"
     volumes:
-      - source: "db_data"
+      - source: "db"
         target: "/var/lib/mysql"
         type: "volume"
 
@@ -29,10 +29,13 @@ services:
       - "80:80"
     restart: "always"
     volumes:
-      - source: "wp_data"
+      - source: "wp"
         target: "/var/www/html"
         type: "volume"
+      - source: "./"
+        target: "/var/www/html/wp-content/plugins/wordpress-sandbox"
+        type: "bind"
 
 volumes:
-  db_data: {}
-  wp_data: {}
+  db: {}
+  wp: {}
