@@ -19,7 +19,8 @@ module.exports = function(grunt) {
           "!.git/**/*",
           "!bin/**/*",
           "!node_modules/**/*",
-          "!tests/**/*"
+          "!tests/**/*",
+          "!vendor/**/*"
         ]
       }
     },
