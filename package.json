@@ -16,7 +16,7 @@
     "url": "git+https://github.com/thisishuey/php-sandbox.git"
   },
   "scripts": {
-    "wp": "docker run --rm -it --volumes-from wordpress-sandbox_wp --network wordpress-sandbox_default --user 1000:1000 wordpress:cli"
+    "wp": "docker run --rm -it --volume $(pwd)/docker-php-memory-limit.ini:/usr/local/etc/php/conf.d/docker-php-memory-limit.ini --volumes-from wordpress-sandbox_wp --network wordpress-sandbox_default --user 1000:1000 wordpress:cli"
   },
   "version": "1.0.0"
 }
