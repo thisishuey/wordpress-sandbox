@@ -16,6 +16,7 @@
     "url": "git+https://github.com/thisishuey/php-sandbox.git"
   },
   "scripts": {
+    "make-pot": "yarn wp i18n make-pot . /wordpress-sandbox/languages/wordpress-sandbox.pot",
     "wp": "docker run --rm -it --volume $(pwd)/docker-php-memory-limit.ini:/usr/local/etc/php/conf.d/docker-php-memory-limit.ini --volumes-from wordpress-sandbox_wp --network wordpress-sandbox_default --user 1000:1000 wordpress:cli"
   },
   "version": "1.0.0"
