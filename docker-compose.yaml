@@ -33,7 +33,7 @@ services:
         target: "/var/www/html"
         type: "volume"
       - source: "./"
-        target: "/var/www/html/wp-content/plugins/wordpress-sandbox"
+        target: "/wordpress-sandbox"
         type: "bind"
 
 volumes:
