@@ -1,0 +1,27 @@
+services:
+  db:
+    env_file: .env
+    image: mariadb:latest
+    volumes:
+      - source: db
+        target: /var/lib/mysql
+        type: volume
+  wp:
+    depends_on:
+      - db
+    env_file: .env
+    image: wordpress:latest
+    ports:
+      - published: 80
+        target: 80
+    volumes:
+      - source: wp
+        target: /var/www/html
+        type: volume
+      - source: ./
+        target: /wordpress-sandbox
+        type: bind
+version: "3.7"
+volumes:
+  db: {}
+  wp: {}
